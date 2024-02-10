@@ -1,0 +1,39 @@
+CREATE TABLE customer (
+CustomerID INT PRIMARY KEY AUTO_INCREMENT,
+FirstName varchar(50),
+LastName varchar(50),
+Email varchar(60),
+PhoneNmber varchar(50),
+Address varchar(200)
+);
+
+CREATE TABLE Transactions (
+    TransactionID INT PRIMARY KEY AUTO_INCREMENT,
+    CustomerID INT,
+    payment_method_ID INT,
+    Amount DECIMAL(10, 2),
+    TransactionDate DATE,
+    FOREIGN KEY (CustomerID) REFERENCES customer(CustomerID),
+    FOREIGN KEY (payment_method_ID) REFERENCES payment_method(payment_method_ID)
+);
+
+CREATE TABLE Transactions (
+    TransactionID INT PRIMARY KEY AUTO_INCREMENT,
+    CustomerID INT,
+    payment_method_ID INT,
+    Amount DECIMAL(10, 2),
+    TransactionDate DATE
+ );
+
+
+CREATE TABLE payment_method (
+payment_method_ID INT PRIMARY KEY AUTO_INCREMENT,
+payment_method varchar(20)
+);
+
+
+INSERT INTO payment_method(payment_method) VALUES
+('Cash'),
+('Credit Card'),
+('Debit Card'),
+('Cheque');
